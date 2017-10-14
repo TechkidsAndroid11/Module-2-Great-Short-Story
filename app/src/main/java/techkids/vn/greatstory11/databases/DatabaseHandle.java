@@ -1,5 +1,6 @@
 package techkids.vn.greatstory11.databases;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -57,5 +58,20 @@ public class DatabaseHandle {
         Log.d(TAG, "getListStory: " + storyModelList.toString());
 
         return storyModelList;
+    }
+
+    public void setBookmark(StoryModel storyModel, boolean bookmark) {
+        sqLiteDatabase = assetHelper.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        if (bookmark) {
+            contentValues.put("bookmark", 1);
+        } else {
+            contentValues.put("bookmark", 0);
+        }
+
+        sqLiteDatabase.update("tbl_short_story", contentValues,
+                "title = ?", new String[]{String.valueOf(storyModel.getTitle())});
     }
 }

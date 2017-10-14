@@ -60,6 +60,13 @@ public class StoryAdapter extends ArrayAdapter<StoryModel> {
         //decode từ byte[] ra bitmap
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytesFromBase64, 0, bytesFromBase64.length);
 
+        View vBookmark = convertView.findViewById(R.id.v_bookmark);
+        if (storyModels.get(position).isBookmark()) {
+            vBookmark.setBackgroundResource(R.color.colorAccent);
+        } else {
+            vBookmark.setBackgroundResource(R.color.colorPrimary);
+        }
+
         imageView.setImageBitmap(bitmap);
         return convertView;
     }

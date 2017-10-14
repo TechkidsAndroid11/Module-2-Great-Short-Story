@@ -27,13 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         lvStory = (ListView) findViewById(R.id.lv_story);
 
-        storyModelList = DatabaseHandle.getInstance(this).getListStory();
-        StoryAdapter storyAdapter = new StoryAdapter(
-                this,
-                R.layout.item_list_story,
-                storyModelList);
-        lvStory.setAdapter(storyAdapter);
-
         lvStory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -42,5 +35,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        storyModelList = DatabaseHandle.getInstance(this).getListStory();
+        StoryAdapter storyAdapter = new StoryAdapter(
+                this,
+                R.layout.item_list_story,
+                storyModelList);
+        lvStory.setAdapter(storyAdapter);
     }
 }

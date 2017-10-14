@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import techkids.vn.greatstory11.R;
+import techkids.vn.greatstory11.databases.DatabaseHandle;
 import techkids.vn.greatstory11.databases.StoryModel;
 
 public class DescriptionActivity extends AppCompatActivity implements View.OnClickListener {
@@ -46,6 +47,12 @@ public class DescriptionActivity extends AppCompatActivity implements View.OnCli
         tvTitle.setText(storyModel.getTitle());
         tvDes.setText(storyModel.getDescription());
         tvAuthor.setText(storyModel.getAuthor());
+
+        if (storyModel.isBookmark()) {
+            ivBookmark.setImageResource(R.drawable.ic_bookmark_black_24dp);
+        } else {
+            ivBookmark.setImageResource(R.drawable.ic_bookmark_border_black_24dp);
+        }
     }
 
     private void addListeners() {
@@ -72,13 +79,25 @@ public class DescriptionActivity extends AppCompatActivity implements View.OnCli
                 break;
             }
             case R.id.iv_bookmark: {
-
+                setBookmark();
                 break;
             }
             case R.id.bt_start_reading: {
 
                 break;
             }
+        }
+    }
+
+    private void setBookmark() {
+        if (storyModel.isBookmark()) {
+            ivBookmark.setImageResource(R.drawable.ic_bookmark_border_black_24dp);
+            DatabaseHandle.getInstance(this).setBookmark(storyModel, false);
+            storyModel.setBookmark(false);
+        } else {
+            ivBookmark.setImageResource(R.drawable.ic_bookmark_black_24dp);
+            DatabaseHandle.getInstance(this).setBookmark(storyModel, true);
+            storyModel.setBookmark(true);
         }
     }
 }
