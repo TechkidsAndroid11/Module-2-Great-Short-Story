@@ -1,4 +1,4 @@
-package techkids.vn.greatstory11;
+package techkids.vn.greatstory11.databases;
 
 import android.content.Context;
 import android.database.Cursor;

@@ -1,4 +1,4 @@
-package techkids.vn.greatstory11;
+package techkids.vn.greatstory11.adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import techkids.vn.greatstory11.R;
+import techkids.vn.greatstory11.databases.StoryModel;
 
 /**
  * Created by Admins on 10/7/2017.

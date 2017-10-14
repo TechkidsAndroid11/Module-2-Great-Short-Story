@@ -1,10 +1,12 @@
-package techkids.vn.greatstory11;
+package techkids.vn.greatstory11.databases;
+
+import java.io.Serializable;
 
 /**
  * Created by Admins on 10/7/2017.
  */
 
-public class StoryModel {
+public class StoryModel implements Serializable {
     private String image;
     private String title;
     private String description;
