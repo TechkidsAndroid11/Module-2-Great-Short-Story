@@ -28,6 +28,10 @@ public class StoryAdapter extends ArrayAdapter<StoryModel> {
     private int resource;
     private List<StoryModel> storyModels;
 
+    TextView tvTitle;
+    TextView tvAuthor;
+    ImageView imageView;
+
     public StoryAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<StoryModel> objects) {
         super(context, resource, objects);
 
@@ -43,9 +47,9 @@ public class StoryAdapter extends ArrayAdapter<StoryModel> {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         convertView = layoutInflater.inflate(resource, parent, false);
 
-        TextView tvTitle = convertView.findViewById(R.id.tv_title);
-        TextView tvAuthor = convertView.findViewById(R.id.tv_author);
-        ImageView imageView = convertView.findViewById(R.id.iv_story);
+        tvTitle = convertView.findViewById(R.id.tv_title);
+        tvAuthor = convertView.findViewById(R.id.tv_author);
+        imageView = convertView.findViewById(R.id.iv_story);
 
         //set data
         tvTitle.setText(storyModels.get(position).getTitle());

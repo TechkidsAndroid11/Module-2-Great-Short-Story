@@ -1,5 +1,6 @@
 package techkids.vn.greatstory11.activities;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -83,7 +84,9 @@ public class DescriptionActivity extends AppCompatActivity implements View.OnCli
                 break;
             }
             case R.id.bt_start_reading: {
-
+                Intent intent = new Intent(this, ReadingActivity.class);
+                intent.putExtra(MainActivity.STORY_KEY, storyModel);
+                startActivity(intent);
                 break;
             }
         }

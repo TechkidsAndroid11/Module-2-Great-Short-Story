@@ -6,6 +6,7 @@
     tools:context="techkids.vn.greatstory11.activities.MainActivity">
 
     <ListView
+        android:divider="@null"
         android:id="@+id/lv_story"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
